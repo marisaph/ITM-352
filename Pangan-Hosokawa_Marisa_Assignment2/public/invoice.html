@@ -1,0 +1,132 @@
+<script src="./store.js"> </script>
+
+<script>
+    // modified from invoice on WOD 2
+let params = (new URL(document.location)).searchParams; 
+GET = {}; 
+params.forEach(function (value, key) { GET[key] = value });
+subtotal = 0;
+
+//notifies if the username and password are correct
+window.onload = function () {
+    if (params.has('username')) {
+      alert('Thank you for your purchase ' + params.get('name'));
+    }
+    else {
+      alert('Please log in.');
+      window.location='/login.html' + window.location.search;
+    }
+  }
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="form-style.css"> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Invoice</title>
+
+</head>  
+
+<body>
+        <table border="2" align= "center">
+                <tbody>
+                  <tr>
+                    <th style="text-align: center;" width="43%">Item</th>
+                    <th style="text-align: center;" width="11%">Quantity</th>
+                    <th style="text-align: center;" width="13%">Price</th>
+                    <th style="text-align: center;" width="54%">Extended price</th>
+                  </tr>
+            <script>
+              for (i = 0; i < products_array.length; i++) {
+                qty = GET[`quantity${i}`]; 
+                if (qty > 0){  
+                var extended_price = products_array[i].price * qty 
+                var subtotal = extended_price + subtotal 
+                  document.write(`
+                  <tr>
+                    <td width="43%">${products_array[i].type}</td>
+                    <td align="center" width="11%">${qty}</td>
+                    <td width="13%">\$${products_array[i].price}</td>
+                    <td width="54%">\$${extended_price}</td>
+                  </tr>
+            `);}
+            }
+         </script>
+         <script>
+           /* Modified from invoice from WOD 2 -- Calculating the tax, shipping cost, and total*/
+
+            var tax_rate = 0.0465; // tax rate 4.65%
+              var tax = tax_rate * subtotal; // tax equals tax rate multiplied by subtotal
+              if(subtotal <= 50){ // if subtotal less than or equal to $50
+                   shipping = 2;  // shipping $2
+                   }
+              else if(subtotal <= 100){ //if subtotal less than or equal to $100
+                shipping = 5; // shipping  $5
+              }
+              else{ // all else (if subtotal greater than $100)
+                shipping = 0.05*subtotal  //shipping 5% of the subtotal
+              }
+              var total = tax + subtotal + shipping;  // total equals to sum of tax, subtotal, and shipping
+              </script>
+             <tr>
+                    <td colspan="4" width="100%">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center;" colspan="3" width="67%">Sub-total</td>
+                    <td width="54%">$<script>document.write(subtotal)/*subtotal*/</script></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center;" colspan="3" width="67%"><span style="font-family: arial;">Tax @ 4.65%</span></td>
+                    <td width="54%">$<script>document.write(tax.toFixed(2))/*2 decimal places*/</script></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center;" colspan="3" width="67%"><span style="font-family: arial;">Shipping</span></td>
+                    <td width="54%">$<script>document.write(shipping)/*shipping cost*/</script></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: center;" colspan="3" width="67%"><strong>Total</strong></td>
+                    <td width="54%"><strong>$<script>document.write(total.toFixed(2))/*2 decimal places*/</script></strong></td>
+                  </tr>
+            
+                </tbody>
+              </table>
+        <div>
+            <b><br>
+                <center>
+                    OUR SHIPPING POLICY IS:
+                    <br> A subtotal $0 - $49.99 will be $2 shipping
+                    <br> A subtotal $50 - $99.99 will be $5 shipping
+                    <br> Subtotals over $100 will be charged 5% of the subtotal amount 
+                </center>
+                
+            </b> </div>
+        </div>
+        <footer>
+            <style>
+                
+                h3{
+                    color: lightseagreen; /* color of footer */
+                    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif /*font style */
+                }
+                body{
+                    background-color: peachpuff; /*color of background */
+                }
+                div{
+                    color:indianred;/* color of shipping info */
+                    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif /* font style */
+    }
+            </style>
+            <h3>
+                <center>
+                        <br>Thank you for your purchase!
+                </center>
+            </h3>
+        </footer>
+</body>
+</html>
+       
+    
+

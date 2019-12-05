@@ -1,0 +1,44 @@
+body {
+    width: 800px;
+    margin: 0 auto;
+}
+
+main{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    text-align: center;
+
+}
+
+h1,h3 {
+    text-align: center;
+    color: indianred;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+
+}
+h2{
+  text-align: center;
+    color: teal;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+p{
+text-align: center;
+color: maroon;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif 
+
+}
+
+img {
+    
+    height: 200px;
+    width: 200px;
+   align-content: center;
+}
+ div {
+    border: 5px solid black;
+    display: flex;
+ }
+
+/* modified from smartphoneproducts lab 3 css */
+/* the style sheet sets up how the page is set through its pictures, headings, fonts, and overall look of the purchase page  */

@@ -1,0 +1,29 @@
+body {
+    width: 800px;
+    margin: 0 auto;
+    background-color: peachpuff;
+}
+
+
+h1,h3 {
+    text-align: center;
+    color: indianred;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+
+}
+h2{
+  text-align: center;
+    color: teal;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+img {
+    
+    height: 450px;
+    width: 450px;
+   align-content: center;
+
+}
+
+/* modified from smartphoneproducts lab 3 css */
+/* the style sheet sets up how the page is set through its pictures, headings, fonts, and overall look of the index page  */

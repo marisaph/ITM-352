@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var myParser = require("body-parser");
 var fs = require('fs');
-var data = require('store.js');
+var data = require('./public/store.js');
 var products = data.products_array;
 
 function isNonNegInt(q, returnErrors = false) {
